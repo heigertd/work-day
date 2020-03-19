@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Work Day Scheduler</title>
+  </head>
+
+  <body>
+    <header class="jumbotron">
+      <h1 class="display-3">Work Day Scheduler</h1>
+      <p class="lead">A simple calendar app for scheduling your work day</p>
+      <p id="currentDay" class="lead"></p>
+    </header>
+    <div class="container">
+      <!-- Timeblocks go here -->
+      <div class="row">
+          <div class="col-md-1 border border-dark rounded-left ">
+              <p>9am</p>
+          </div>
+          <textarea class="col 9"></textarea>
+          <button class="col-1">Save</button>
+      </div>
+      <div class="row">
+          <div class="col-md-1 border border-dark rounded-left ">
+            <p>10am</p>
+          </div>
+          <textarea class="col 10"></textarea>
+          <button class="col-1">Save</button>
+      </div>
+      <div class="row">
+        <div class="col-md-1 border border-dark rounded-left ">
+            <p>11am</p>
+        </div>
+        <textarea class="col 11"></textarea>
+        <button class="col-1">Save</button>
+      </div>
+      <div class="row">
+        <div class="col-md-1 border border-dark rounded-left ">
+            <p>12pm</p>
+        </div>
+        <textarea class="col 12"></textarea>
+        <button class="col-1">Save</button>
+      </div>
+      <div class="row">
+        <div class="col-md-1 border border-dark rounded-left ">
+            <p>1pm</p>
+        </div>
+        <textarea class="col 1"></textarea>
+        <button class="col-1">Save</button>
+      </div>
+      <div class="row">
+        <div class="col-md-1 border border-dark rounded-left ">
+            <p>2pm</p>
+        </div>
+        <textarea class="col 2"></textarea>
+        <button class="col-1">Save</button>
+      </div>
+      <div class="row">
+        <div class="col-md-1 border border-dark rounded-left ">
+            <p>3pm</p>
+        </div>
+        <textarea class="col 3"></textarea>
+        <button class="col-1">Save</button>
+      </div>
+      <div class="row">
+        <div class="col-md-1 border border-dark rounded-left ">
+            <p>4pm</p>
+        </div>
+        <textarea class="col 4"></textarea>
+        <button class="col-1">Save</button>
+      </div>
+      <div class="row">
+        <div class="col-md-1 border border-dark rounded-left ">
+            <p>5pm</p>
+        </div>
+        <textarea class="col 5"></textarea>
+        <button class="col-1">Save</button>
+      </div>
+    </div>
+
+    <!-- <script src="script.js"></script> -->
+    <script src="lib/moment/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script>
+        // console.log(moment())
+        var test = moment().add(3, 'days').calendar();
+        // console.log(test)
+        $("#currentDay").text(moment().format("dddd Do YYYY"))
+
+        
+        if(moment().startOf('day').fromNow() === '17 hours ago'){
+            $(".5").addClass("present")
+            $(".4").addClass("past")
+            $(".3").addClass("past")
+            $(".2").addClass("past")
+            $(".1").addClass("past")
+            $(".12").addClass("past")
+            $(".11").addClass("past")
+            $(".10").addClass("past")
+            $(".9").addClass("past")
+        }else if(moment().startOf('day').fromNow() === '16 hours ago'){
+            $(".5").addClass("future")
+            $(".4").addClass("present")
+            $(".3").addClass("past")
+            $(".2").addClass("past")
+            $(".1").addClass("past")
+            $(".12").addClass("past")
+            $(".11").addClass("past")
+            $(".10").addClass("past")
+            $(".9").addClass("past")
+        }else if(moment().startOf('day').fromNow() === '15 hours ago'){
+            $(".5").addClass("future")
+            $(".4").addClass("future")
+            $(".3").addClass("present")
+            $(".2").addClass("past")
+            $(".1").addClass("past")
+            $(".12").addClass("past")
+            $(".11").addClass("past")
+            $(".10").addClass("past")
+            $(".9").addClass("past")
+        }else if(moment().startOf('day').fromNow() === '19 hours ago'){
+            $(".5").addClass("future")
+            $(".4").addClass("future")
+            $(".3").addClass("future")
+            $(".2").addClass("present")
+            $(".1").addClass("past")
+            $(".12").addClass("past")
+            $(".11").addClass("past")
+            $(".10").addClass("past")
+            $(".9").addClass("past")
+        }else if(moment().startOf('day').fromNow() === '13 hours ago'){
+            $(".5").addClass("future")
+            $(".4").addClass("future")
+            $(".3").addClass("future")
+            $(".2").addClass("future")
+            $(".1").addClass("present")
+            $(".12").addClass("past")
+            $(".11").addClass("past")
+            $(".10").addClass("past")
+            $(".9").addClass("past")
+        }else if(moment().startOf('day').fromNow() === '12 hours ago'){
+            $(".5").addClass("future")
+            $(".4").addClass("future")
+            $(".3").addClass("future")
+            $(".2").addClass("future")
+            $(".1").addClass("future")
+            $(".12").addClass("present")
+            $(".11").addClass("past")
+            $(".10").addClass("past")
+            $(".9").addClass("past")
+        }else if(moment().startOf('day').fromNow() === '11 hours ago'){
+            $(".5").addClass("future")
+            $(".4").addClass("future")
+            $(".3").addClass("future")
+            $(".2").addClass("future")
+            $(".1").addClass("future")
+            $(".12").addClass("future")
+            $(".11").addClass("present")
+            $(".10").addClass("past")
+            $(".9").addClass("past")
+        }else if(moment().startOf('day').fromNow() === '10 hours ago'){
+            $(".5").addClass("future")
+            $(".4").addClass("future")
+            $(".3").addClass("future")
+            $(".2").addClass("future")
+            $(".1").addClass("future")
+            $(".12").addClass("future")
+            $(".11").addClass("future")
+            $(".10").addClass("present")
+            $(".9").addClass("past")
+        }else if(moment().startOf('day').fromNow() === '9 hours ago'){
+            $(".5").addClass("future")
+            $(".4").addClass("future")
+            $(".3").addClass("future")
+            $(".2").addClass("future")
+            $(".1").addClass("future")
+            $(".12").addClass("future")
+            $(".11").addClass("future")
+            $(".10").addClass("future")
+            $(".9").addClass("present")
+        }
+    </script>
+  </body>
+</html>
