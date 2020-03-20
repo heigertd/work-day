@@ -35,63 +35,63 @@
               <p>9am</p>
           </div>
           <textarea class="col 9"></textarea>
-          <button class="col-1">Save</button>
+          <button class="col-1 save">Save</button>
       </div>
       <div class="row">
           <div class="col-md-1 border border-dark rounded-left ">
             <p>10am</p>
           </div>
           <textarea class="col 10"></textarea>
-          <button class="col-1">Save</button>
+          <button class="col-1 save">Save</button>
       </div>
       <div class="row">
         <div class="col-md-1 border border-dark rounded-left ">
             <p>11am</p>
         </div>
         <textarea class="col 11"></textarea>
-        <button class="col-1">Save</button>
+        <button class="col-1 save">Save</button>
       </div>
       <div class="row">
         <div class="col-md-1 border border-dark rounded-left ">
             <p>12pm</p>
         </div>
         <textarea class="col 12"></textarea>
-        <button class="col-1">Save</button>
+        <button class="col-1 save">Save</button>
       </div>
       <div class="row">
         <div class="col-md-1 border border-dark rounded-left ">
             <p>1pm</p>
         </div>
         <textarea class="col 1"></textarea>
-        <button class="col-1">Save</button>
+        <button class="col-1 save">Save</button>
       </div>
       <div class="row">
         <div class="col-md-1 border border-dark rounded-left ">
             <p>2pm</p>
         </div>
         <textarea class="col 2"></textarea>
-        <button class="col-1">Save</button>
+        <button class="col-1 save">Save</button>
       </div>
       <div class="row">
         <div class="col-md-1 border border-dark rounded-left ">
             <p>3pm</p>
         </div>
         <textarea class="col 3"></textarea>
-        <button class="col-1">Save</button>
+        <button class="col-1 save">Save</button>
       </div>
       <div class="row">
         <div class="col-md-1 border border-dark rounded-left ">
             <p>4pm</p>
         </div>
         <textarea class="col 4"></textarea>
-        <button class="col-1">Save</button>
+        <button class="col-1 save">Save</button>
       </div>
       <div class="row">
         <div class="col-md-1 border border-dark rounded-left ">
             <p>5pm</p>
         </div>
-        <textarea class="col 5"></textarea>
-        <button class="col-1">Save</button>
+        <textarea class="col 5 text"></textarea>
+        <button class="col-1 save" data-save="5">Save</button>
       </div>
     </div>
 
@@ -100,12 +100,56 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script>
-        // console.log(moment())
-        var test = moment().add(3, 'days').calendar();
-        // console.log(test)
-        $("#currentDay").text(moment().format("dddd Do YYYY"))
 
+      renderSaved();
+
+      //saves all content in text area
+      $(".save").click(function(){
+        var hourFive = $(".5").val()
+        var hourFour = $(".4").val()
+        var hourThree = $(".3").val()
+        var hourTwo = $(".2").val()
+        var hourOne = $(".1").val()
+        var hourTwelve = $(".12").val()
+        var hourEleven = $(".11").val()
+        var hourTen = $(".10").val()
+        var hourNine = $(".9").val()
+        // console.log(targetSave)
+        localStorage.setItem("hourFive", hourFive)
+        localStorage.setItem("hourFour", hourFour)
+        localStorage.setItem("hourThree", hourThree)
+        localStorage.setItem("hourTwo", hourTwo)
+        localStorage.setItem("hourOne", hourOne)
+        localStorage.setItem("hourTwelve", hourTwelve)
+        localStorage.setItem("hourEleven", hourEleven)
+        localStorage.setItem("hourTen", hourTen)
+        localStorage.setItem("hourNine", hourNine)
         
+      })
+
+      function renderSaved(){
+        var hourFive = localStorage.getItem("hourFive")
+        $(".5").text(hourFive);
+        var hourFour = localStorage.getItem("hourFour")
+        $(".4").text(hourFour);
+        var hourThree = localStorage.getItem("hourThree")
+        $(".3").text(hourThree);
+        var hourTwo = localStorage.getItem("hourTwo")
+        $(".2").text(hourTwo);
+        var hourOne = localStorage.getItem("hourOne")
+        $(".1").text(hourOne);
+        var hourTwelve = localStorage.getItem("hourTwelve")
+        $(".12").text(hourTwelve);
+        var hourEleven = localStorage.getItem("hourEleven")
+        $(".11").text(hourEleven);
+        var hourTen = localStorage.getItem("hourTen")
+        $(".10").text(hourTen);
+        var hourNine = localStorage.getItem("hourNine")
+        $(".9").text(hourNine);
+      }
+
+       //Highlights the time of day between 9am and 5pm
+        $("#currentDay").text(moment().format("dddd Do YYYY"))
         if(moment().startOf('day').fromNow() === '17 hours ago'){
             $(".5").addClass("present")
             $(".4").addClass("past")
@@ -136,7 +180,7 @@
             $(".11").addClass("past")
             $(".10").addClass("past")
             $(".9").addClass("past")
-        }else if(moment().startOf('day').fromNow() === '19 hours ago'){
+        }else if(moment().startOf('day').fromNow() === '14 hours ago'){
             $(".5").addClass("future")
             $(".4").addClass("future")
             $(".3").addClass("future")
@@ -196,6 +240,16 @@
             $(".11").addClass("future")
             $(".10").addClass("future")
             $(".9").addClass("present")
+        }else{
+          $(".5").addClass("future")
+            $(".4").addClass("future")
+            $(".3").addClass("future")
+            $(".2").addClass("future")
+            $(".1").addClass("future")
+            $(".12").addClass("future")
+            $(".11").addClass("future")
+            $(".10").addClass("future")
+            $(".9").addClass("future")
         }
     </script>
   </body>
